@@ -1,4 +1,4 @@
-# PupilX - Native Android Application
+# PupilX
 
 This project is a native Android implementation of a Unity-based application for image/frame processing and scientific calculations related to pupil response analysis.
 
@@ -68,6 +68,4 @@ This will build a debug version of the application. The output APK will be locat
 - Android SDK 24 or higher
 - Android Studio Arctic Fox or newer
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
