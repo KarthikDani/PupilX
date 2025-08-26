@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.1.4" type="incidents">
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;PupilX - Native Android App&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="12"
+            column="9"
+            startOffset="484"
+            endLine="12"
+            endColumn="51"
+            endOffset="526"/>
+    </incident>
+
+    <incident
+        id="OldTargetApi"
+        severity="warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.">
+        <fix-replace
+            description="Update targetSdkVersion to 36"
+            oldString="34"
+            replacement="36"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="10"
+            column="9"
+            startOffset="238"
+            endLine="10"
+            endColumn="28"
+            endOffset="257"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.17.0">
+        <fix-replace
+            description="Change to 1.17.0"
+            family="Update versions"
+            oldString="1.12.0"
+            replacement="1.17.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="37"
+            column="20"
+            startOffset="916"
+            endLine="37"
+            endColumn="51"
+            endOffset="947"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1">
+        <fix-replace
+            description="Change to 1.7.1"
+            family="Update versions"
+            oldString="1.6.1"
+            replacement="1.7.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="38"
+            column="20"
+            startOffset="967"
+            endLine="38"
+            endColumn="56"
+            endOffset="1003"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.10.0 is available: 1.12.0">
+        <fix-replace
+            description="Change to 1.12.0"
+            family="Update versions"
+            oldString="1.10.0"
+            replacement="1.12.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="39"
+            column="20"
+            startOffset="1023"
+            endLine="39"
+            endColumn="65"
+            endOffset="1068"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1">
+        <fix-replace
+            description="Change to 2.2.1"
+            family="Update versions"
+            oldString="2.1.4"
+            replacement="2.2.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="40"
+            column="20"
+            startOffset="1088"
+            endLine="40"
+            endColumn="70"
+            endOffset="1138"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.3.0">
+        <fix-replace
+            description="Change to 1.3.0"
+            family="Update versions"
+            oldString="1.1.5"
+            replacement="1.3.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="42"
+            column="31"
+            startOffset="1213"
+            endLine="42"
+            endColumn="62"
+            endOffset="1244"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.7.0">
+        <fix-replace
+            description="Change to 3.7.0"
+            family="Update versions"
+            oldString="3.5.1"
+            replacement="3.7.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="43"
+            column="31"
+            startOffset="1275"
+            endLine="43"
+            endColumn="75"
+            endOffset="1319"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.activity:activity-compose than 1.8.2 is available: 1.10.1">
+        <fix-replace
+            description="Change to 1.10.1"
+            family="Update versions"
+            oldString="1.8.2"
+            replacement="1.10.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="52"
+            column="20"
+            startOffset="1547"
+            endLine="52"
+            endColumn="62"
+            endOffset="1589"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.compose.ui:ui than 1.6.4 is available: 1.9.0">
+        <fix-replace
+            description="Change to 1.9.0"
+            family="Update versions"
+            oldString="1.6.4"
+            replacement="1.9.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="53"
+            column="20"
+            startOffset="1609"
+            endLine="53"
+            endColumn="50"
+            endOffset="1639"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.compose.ui:ui-tooling-preview than 1.6.4 is available: 1.9.0">
+        <fix-replace
+            description="Change to 1.9.0"
+            family="Update versions"
+            oldString="1.6.4"
+            replacement="1.9.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="54"
+            column="20"
+            startOffset="1659"
+            endLine="54"
+            endColumn="66"
+            endOffset="1705"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.compose.material3:material3 than 1.2.1 is available: 1.3.2">
+        <fix-replace
+            description="Change to 1.3.2"
+            family="Update versions"
+            oldString="1.2.1"
+            replacement="1.3.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="55"
+            column="20"
+            startOffset="1725"
+            endLine="55"
+            endColumn="64"
+            endOffset="1769"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.7.0 is available: 2.9.2">
+        <fix-replace
+            description="Change to 2.9.2"
+            family="Update versions"
+            oldString="2.7.0"
+            replacement="2.9.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="56"
+            column="20"
+            startOffset="1789"
+            endLine="56"
+            endColumn="74"
+            endOffset="1843"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.camera:camera-core than 1.3.3 is available: 1.4.2">
+        <fix-replace
+            description="Change to 1.4.2"
+            family="Update versions"
+            oldString="1.3.3"
+            replacement="1.4.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="59"
+            column="20"
+            startOffset="1879"
+            endLine="59"
+            endColumn="55"
+            endOffset="1914"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.camera:camera-camera2 than 1.3.3 is available: 1.4.2">
+        <fix-replace
+            description="Change to 1.4.2"
+            family="Update versions"
+            oldString="1.3.3"
+            replacement="1.4.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="60"
+            column="20"
+            startOffset="1934"
+            endLine="60"
+            endColumn="58"
+            endOffset="1972"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.camera:camera-lifecycle than 1.3.3 is available: 1.4.2">
+        <fix-replace
+            description="Change to 1.4.2"
+            family="Update versions"
+            oldString="1.3.3"
+            replacement="1.4.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="61"
+            column="20"
+            startOffset="1992"
+            endLine="61"
+            endColumn="60"
+            endOffset="2032"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.camera:camera-view than 1.3.3 is available: 1.4.2">
+        <fix-replace
+            description="Change to 1.4.2"
+            family="Update versions"
+            oldString="1.3.3"
+            replacement="1.4.2"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="62"
+            column="20"
+            startOffset="2052"
+            endLine="62"
+            endColumn="55"
+            endOffset="2087"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-compose than 2.7.7 is available: 2.9.3">
+        <fix-replace
+            description="Change to 2.9.3"
+            family="Update versions"
+            oldString="2.7.7"
+            replacement="2.9.3"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="68"
+            column="20"
+            startOffset="2198"
+            endLine="68"
+            endColumn="66"
+            endOffset="2244"/>
+    </incident>
+
+</incidents>

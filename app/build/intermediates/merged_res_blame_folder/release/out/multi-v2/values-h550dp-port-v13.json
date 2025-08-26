@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.pupilx.app-mergeReleaseResources-29:/values-h550dp-port-v13/values-h550dp-port-v13.xml",
+            "outputFile": "com.example.pupilx.app-mergeReleaseResources-64:/values-h550dp-port-v13/values-h550dp-port-v13.xml",
             "map": [
                 {
-                    "source": "/home/karthik/.gradle/caches/transforms-3/d3e53d119620001bb37f8a0f06c209c9/transformed/material-1.10.0/res/values-h550dp-port-v13/values-h550dp-port-v13.xml",
+                    "source": "/home/karthik/.gradle/caches/transforms-3/c69f8f39c689375408e03ed021e3dd8e/transformed/material-1.10.0/res/values-h550dp-port-v13/values-h550dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

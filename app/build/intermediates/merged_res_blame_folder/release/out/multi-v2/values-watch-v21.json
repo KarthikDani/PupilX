@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.pupilx.app-mergeReleaseResources-29:/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "com.example.pupilx.app-mergeReleaseResources-64:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "/home/karthik/.gradle/caches/transforms-3/b6392d9405cd0ec9997b5556aecd6afb/transformed/appcompat-1.6.1/res/values-watch-v21/values-watch-v21.xml",
+                    "source": "/home/karthik/.gradle/caches/transforms-3/45533955110f59b81fa8e1aa54381241/transformed/appcompat-1.6.1/res/values-watch-v21/values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

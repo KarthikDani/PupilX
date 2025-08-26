@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.pupilx.app-mergeReleaseResources-29:/values-v24/values-v24.xml",
+            "outputFile": "com.example.pupilx.app-mergeReleaseResources-64:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/home/karthik/.gradle/caches/transforms-3/d3e53d119620001bb37f8a0f06c209c9/transformed/material-1.10.0/res/values-v24/values-v24.xml",
+                    "source": "/home/karthik/.gradle/caches/transforms-3/c69f8f39c689375408e03ed021e3dd8e/transformed/material-1.10.0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/karthik/.gradle/caches/transforms-3/b6392d9405cd0ec9997b5556aecd6afb/transformed/appcompat-1.6.1/res/values-v24/values-v24.xml",
+                    "source": "/home/karthik/.gradle/caches/transforms-3/45533955110f59b81fa8e1aa54381241/transformed/appcompat-1.6.1/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
