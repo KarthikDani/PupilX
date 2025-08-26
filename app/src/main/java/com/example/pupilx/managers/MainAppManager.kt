@@ -31,7 +31,7 @@ class MainAppManager {
         // Clear previous results
         patientResultData.velocityCalculations.clear()
         patientResultData.graphValueCalculation.clear()
-        patientResultData.graphValueCalculationNew.clear()
+        patientResultData.graphValueCalculation.clear()
         
         when (currentProtocol) {
             EyeProtocolType.ExtendedPIPR_Bino -> {

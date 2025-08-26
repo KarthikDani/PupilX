@@ -5,7 +5,7 @@ import com.example.pupilx.models.PatientResultData
 
 class AndroidDataManager {
     // Old structure of data
-    var patientTestDataList: PatientTestDataList = PatientTestDataList()
+    var patientTestDataList: PatientTestDataList = PatientTestDataList(emptyList())
     var patientResultData: PatientResultData = PatientResultData()
 
     fun getTopicData1() {

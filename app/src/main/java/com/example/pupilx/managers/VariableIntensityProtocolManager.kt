@@ -1,8 +1,8 @@
 package com.example.pupilx.managers
 
 class VariableIntensityProtocolManager : BaseProtocolManager() {
-    private val diameterSmoothBinoLeftManager = DiameterSmoothingManager(calculationManager)
-    private val diameterSmoothBinoRightManager = DiameterSmoothingManager(calculationManager)
+    private val diameterSmoothBinoLeftManager = DiameterSmoothingManager()
+    private val diameterSmoothBinoRightManager = DiameterSmoothingManager()
     
     private var low = ""
     private var medium = ""

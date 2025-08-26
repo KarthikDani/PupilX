@@ -34,7 +34,7 @@ class DataManager(private val context: Context) {
             if (file.exists()) {
                 val json = file.readText()
                 // In a real implementation, this would convert from JSON
-                PatientTestDataList()
+                PatientTestDataList(emptyList())
             } else {
                 null
             }

@@ -10,11 +10,11 @@ class TestUtils {
                 // Test CalculationManager
                 val calculationManager = CalculationManager()
                 val testList = listOf(1.0f, 2.0f, 3.0f, 4.0f, 5.0f)
-                val average = calculationManager.findAverageValue(testList)
-                val stdDev = calculationManager.findStandardDeviation(testList)
+                val average = calculationManager.FindAverageValue(testList)
+                val stdDev = calculationManager.FindStandardDeviation(testList)
                 
                 // Test DiameterSmoothingManager
-                val diameterSmoothingManager = DiameterSmoothingManager(calculationManager)
+                val diameterSmoothingManager = DiameterSmoothingManager()
                 
                 // Test ImageProcessor
                 val imageProcessor = ImageProcessor()

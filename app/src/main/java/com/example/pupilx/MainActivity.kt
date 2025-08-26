@@ -20,6 +20,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -36,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -68,7 +70,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = "camera") {
+            NavHost(navController = navController, startDestination = "protocol_selection") {
+                composable("protocol_selection") {
+                    ProtocolSelectionScreen(navController)
+                }
                 composable("camera") {
                     var hasCameraPermission by remember {
                         mutableStateOf(
@@ -99,8 +104,57 @@ class MainActivity : ComponentActivity() {
                 composable("gallery") {
                     GalleryScreen()
                 }
+                composable("protocol_screen/{protocolName}") { backStackEntry ->
+                    val protocolName = backStackEntry.arguments?.getString("protocolName")
+                    ProtocolScreen(protocolName = protocolName ?: "Unknown Protocol")
+                }
             }
         }
+    }
+}
+
+enum class EyeProtocolType {
+    FixedIntensity_Bino,
+    VariableIntensity_Bino,
+    QuickTest_Bino,
+    ExtendedPIPR_Bino,
+    PIPR_Mono,
+    ExtendedPIPR_Mono
+}
+
+@Composable
+fun ProtocolSelectionScreen(navController: NavController) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Select an Eye Protocol")
+        EyeProtocolType.values().forEach { protocolType ->
+            Button(
+                onClick = { navController.navigate("protocol_screen/${protocolType.name}") },
+                modifier = Modifier.padding(8.dp)
+            ) {
+                Text(protocolType.name)
+            }
+        }
+        Button(
+            onClick = { navController.navigate("camera") },
+            modifier = Modifier.padding(8.dp)
+        ) {
+            Text("Go to Camera")
+        }
+    }
+}
+
+@Composable
+fun ProtocolScreen(protocolName: String) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text("Running Protocol: $protocolName")
     }
 }
 
@@ -208,9 +262,9 @@ fun GalleryScreen(galleryViewModel: GalleryViewModel = viewModel()) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 128.dp)
     ) {
-        items(images) { image ->
+        items(images) { imageData ->
             AsyncImage(
-                model = image.uri,
+                model = imageData.uri,
                 contentDescription = null,
                 modifier = Modifier.fillMaxSize()
             )

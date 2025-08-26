@@ -54,17 +54,17 @@
             replacement="">
             <range
                 file="${:app*debug*sourceProvider*0*javaDir*0}/com/example/pupilx/MainActivity.kt"
-                startOffset="4241"
-                endOffset="4276"/>
+                startOffset="5891"
+                endOffset="5926"/>
         </fix-replace>
         <location
             file="${:app*debug*sourceProvider*0*javaDir*0}/com/example/pupilx/MainActivity.kt"
-            line="107"
+            line="161"
             column="1"
-            startOffset="4241"
-            endLine="107"
+            startOffset="5891"
+            endLine="161"
             endColumn="36"
-            endOffset="4276"/>
+            endOffset="5926"/>
         <map>
             <condition minGE="fffffffff8000000"/>
         </map>
@@ -79,17 +79,17 @@
             replacement="">
             <range
                 file="${:app*debug*sourceProvider*0*javaDir*0}/com/example/pupilx/MainActivity.kt"
-                startOffset="2692"
-                endOffset="2727"/>
+                startOffset="2782"
+                endOffset="2817"/>
         </fix-replace>
         <location
             file="${:app*debug*sourceProvider*0*javaDir*0}/com/example/pupilx/MainActivity.kt"
-            line="66"
+            line="68"
             column="5"
-            startOffset="2692"
-            endLine="66"
+            startOffset="2782"
+            endLine="68"
             endColumn="40"
-            endOffset="2727"/>
+            endOffset="2817"/>
         <map>
             <condition minGE="fffffffff8000000"/>
         </map>

@@ -1,8 +1,8 @@
 package com.example.pupilx.managers
 
 class ExtendedPIPRMonocular : BaseProtocolManager() {
-    private val diameterSmoothingManager = DiameterSmoothingManager(calculationManager)
-    private val diameterSmoothingLoop2Manager10sec = DiameterSmoothingManager(calculationManager)
+    private val diameterSmoothingManager = DiameterSmoothingManager()
+    private val diameterSmoothingLoop2Manager10sec = DiameterSmoothingManager()
     
     private var low = ""
     private var medium = ""

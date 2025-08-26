@@ -1,141 +1,127 @@
 package com.example.pupilx.managers
 
-import com.example.pupilx.models.VelocityCalculationData
-import kotlin.math.*
+import kotlin.math.pow
+import kotlin.math.round
+import kotlin.math.sqrt
 
 class CalculationManager {
+
     var baseValue: String = ""
     var constrictedValue: String = ""
     var dilationValue: String = ""
-    var constrictedVelocityValue: String = ""
-    var dilationVelocityValue: String = ""
-    var percentageChangeValue: String = ""
-    var amplitudeConstriction: String = ""
-    var amplitudeDilation: String = ""
+    var constricted_Velocity_Value: String = ""
+    var dilation_velocity_Value: String = ""
+    var percentage_Change_Value: String = ""
+    var Amplitude_Constriction: String = ""
+    var Amplitude_Dilation: String = ""
 
-    fun clearAllVariables() {
+    fun ClearAllVariables() {
         baseValue = ""
         constrictedValue = ""
         dilationValue = ""
-        constrictedVelocityValue = ""
-        dilationVelocityValue = ""
-        percentageChangeValue = ""
-        amplitudeConstriction = ""
-        amplitudeDilation = ""
+        constricted_Velocity_Value = ""
+        dilation_velocity_Value = ""
+        percentage_Change_Value = ""
+        Amplitude_Constriction = ""
+        Amplitude_Dilation = ""
     }
 
-    fun calculateVelocityValue(
+    fun CalucationVelocityValue(
         baseList: List<Float>,
         constrictedList: List<Float>,
         dilationList: List<Float>,
-        timeStampBaseList: List<Float>,
-        timeStampConstrictedList: List<Float>,
-        timeStampDilationList: List<Float>
+        timeStamp_BaseList: List<Float>,
+        timeStamp_ConstrictedList: List<Float>,
+        timeStamp_DilationList: List<Float>
     ) {
-        // First clear all variables here
-        clearAllVariables()
 
-        var baseValueFloat = 0f
-        var baseStandardValue = 0.0
+        ClearAllVariables()
+
+        var BaseValue = 0f
+        var Base_Standard_Value = 0.0
         if (baseList.isNotEmpty()) {
-            baseValueFloat = findAverageValue(baseList)
-            baseStandardValue = findStandardDeviation(baseList)
+            BaseValue = FindAverageValue(baseList)
+            Base_Standard_Value = FindStandardDeviation(baseList)
         }
 
-        var constrictedValueFloat = 0f
-        var constrictedStandardValue = 0.0
+        var ConstrictedValue = 0f
+        var Constricted_Standard_Value = 0.0
         if (constrictedList.isNotEmpty()) {
-            constrictedStandardValue = findStandardDeviation(constrictedList)
+            Constricted_Standard_Value = FindStandardDeviation(constrictedList)
         }
 
-        var dilationValueFloat = 0f
-        var dilationStandardValue = 0.0
+        var DilationValue = 0f
+        var Dilation_Standard_Value = 0.0
         if (dilationList.isNotEmpty()) {
-            dilationStandardValue = findStandardDeviation(dilationList)
+            Dilation_Standard_Value = FindStandardDeviation(dilationList)
         }
 
         val temp = " +/- "
 
         if (baseList.isNotEmpty() && constrictedList.isNotEmpty() && dilationList.isNotEmpty()) {
             // Constriction velocity Value Start here............
-            val lastBaseValueTimeStamp = timeStampBaseList[timeStampBaseList.size - 1]
+            val lastBaseValue_TimeStamp = timeStamp_BaseList.last()
 
             val smallestConstrictedValue = constrictedList.filter { it != 0f }.minOrNull() ?: 0f
-            val smallestConstrictedValueIndex = constrictedList.indexOf(smallestConstrictedValue)
-            val smallestConstrictedValueTimestamp = if (smallestConstrictedValueIndex >= 0 && smallestConstrictedValueIndex < timeStampConstrictedList.size) {
-                timeStampConstrictedList[smallestConstrictedValueIndex]
-            } else {
-                0f
-            }
+            val smallestConstrictedValue_index = constrictedList.indexOf(smallestConstrictedValue)
+            val smallestConstrictedValue_Timestamp = timeStamp_ConstrictedList[smallestConstrictedValue_index]
 
             val tempCon = round(smallestConstrictedValue * 1000.0f) * 0.001f
-            constrictedValueFloat = tempCon
+            ConstrictedValue = tempCon
 
             // Dilation velocity Value Start here............
             val largeDilationValue = dilationList.filter { it != 0f }.maxOrNull() ?: 0f
-            val largeDilationValueIndex = dilationList.indexOf(largeDilationValue)
-            val largeDilationValueTimestamp = if (largeDilationValueIndex >= 0 && largeDilationValueIndex < timeStampDilationList.size) {
-                timeStampDilationList[largeDilationValueIndex]
-            } else {
-                0f
-            }
+            val largeDilationValue_index = dilationList.indexOf(largeDilationValue)
+            val largeDilationValue_Timestamp = timeStamp_DilationList[largeDilationValue_index]
 
             val tempDila = round(largeDilationValue * 1000.0f) * 0.001f
-            dilationValueFloat = tempDila
+            DilationValue = tempDila
 
             // Amplitude Constriction Value
-            val temp2 = baseValueFloat - constrictedValueFloat
-
+            val temp2 = (BaseValue - ConstrictedValue)
             val tempACon = round(temp2 * 1000.0f) * 0.001f
-            amplitudeConstriction = tempACon.toString()
+            Amplitude_Constriction = tempACon.toString()
 
-            val temp3 = lastBaseValueTimeStamp - smallestConstrictedValueTimestamp
-            val temp3Sec = temp3 / 1000
+            var temp3 = (lastBaseValue_TimeStamp - smallestConstrictedValue_Timestamp)
+            temp3 /= 1000f
 
-            var constrictedVelocity = temp2 / temp3Sec
-
+            var constrictedVelocity = temp2 / temp3
             val newTemp1 = round(constrictedVelocity * 1000.0f) * 0.001f
             constrictedVelocity = newTemp1
 
             // Amplitude Dilation Value
-            val temp5 = smallestConstrictedValue - largeDilationValue
-
+            val temp5 = (smallestConstrictedValue - largeDilationValue)
             val tempADila = round(temp5 * 1000.0f) * 0.001f
-            amplitudeDilation = tempADila.toString()
+            Amplitude_Dilation = tempADila.toString()
 
-            val temp4 = smallestConstrictedValueTimestamp - largeDilationValueTimestamp
-            val temp4Sec = temp4 / 1000
+            var temp4 = (smallestConstrictedValue_Timestamp - largeDilationValue_Timestamp)
+            temp4 /= 1000f
 
-            var dilationVelocity = temp5 / temp4Sec
+            var dilationVelocity = temp5 / temp4
             dilationVelocity = round(dilationVelocity * 1000.0f) * 0.001f
 
-            if (constrictedVelocity != 0f) {
-                // Do nothing
-            } else {
+            if (constrictedVelocity == 0f) {
                 constrictedVelocity = 0f
             }
-
-            if (dilationVelocity != 0f) {
-                // Do nothing
-            } else {
+            if (dilationVelocity == 0f) {
                 dilationVelocity = 0f
             }
 
-            baseValue = "$baseValueFloat$temp$baseStandardValue"
-            constrictedValue = "$constrictedValueFloat$temp$constrictedStandardValue"
-            dilationValue = "$dilationValueFloat$temp$dilationStandardValue"
-            constrictedVelocityValue = constrictedVelocity.toString()
-            dilationVelocityValue = dilationVelocity.toString()
+            baseValue = BaseValue.toString() + temp + Base_Standard_Value.toString()
+            constrictedValue = ConstrictedValue.toString() + temp + Constricted_Standard_Value.toString()
+            dilationValue = DilationValue.toString() + temp + Dilation_Standard_Value.toString()
+            constricted_Velocity_Value = constrictedVelocity.toString()
+            dilation_velocity_Value = dilationVelocity.toString()
         }
 
-        // New percentage Change Value............................
-        val tempPercent = (baseValueFloat - constrictedValueFloat) / baseValueFloat
+        // new percentage Change Value............................
+        val tempPercent = (BaseValue - ConstrictedValue) / BaseValue
         val newTemp = tempPercent * 100
-        val tempPercentRounded = round(newTemp * 1000.0f) * 0.001f
-        percentageChangeValue = tempPercentRounded.toString()
+        val tempPercen = round(newTemp * 1000.0f) * 0.001f
+        percentage_Change_Value = tempPercen.toString()
     }
 
-    fun findAverageValue(diameters: List<Float>): Float {
+    fun FindAverageValue(diameters: List<Float>): Float {
         return if (diameters.isNotEmpty()) {
             val average = diameters.average().toFloat()
             round(average * 100.0f) * 0.01f
@@ -144,52 +130,13 @@ class CalculationManager {
         }
     }
 
-    fun findStandardDeviation(diameters: List<Float>): Double {
-        return if (diameters.isNotEmpty()) {
+    fun FindStandardDeviation(diameters: List<Float>): Double {
+        return if (diameters.size > 1) {
             val avg = diameters.average()
-            // Perform the Sum of (value-avg)^2
-            val sum = diameters.sumOf { d -> (d - avg).pow(2.0) }
-            // Put it all together
-            val stdDev = sqrt(sum / (diameters.size - 1))
-            round(stdDev * 1000) / 1000
+            val sum = diameters.sumOf { (it - avg).pow(2) }
+            round(sqrt(sum / (diameters.size - 1)) * 1000.0) / 1000.0
         } else {
             0.0
         }
-    }
-    
-    // Performance optimization: Cache results to avoid recalculation
-    private val averageCache = mutableMapOf<List<Float>, Float>()
-    private val stdDevCache = mutableMapOf<List<Float>, Double>()
-    
-    fun findAverageValueOptimized(diameters: List<Float>): Float {
-        return averageCache.getOrPut(diameters) {
-            if (diameters.isNotEmpty()) {
-                val average = diameters.average().toFloat()
-                round(average * 100.0f) * 0.01f
-            } else {
-                0.0f
-            }
-        }
-    }
-    
-    fun findStandardDeviationOptimized(diameters: List<Float>): Double {
-        return stdDevCache.getOrPut(diameters) {
-            if (diameters.isNotEmpty()) {
-                val avg = diameters.average()
-                // Perform the Sum of (value-avg)^2
-                val sum = diameters.sumOf { d -> (d - avg).pow(2.0) }
-                // Put it all together
-                val stdDev = sqrt(sum / (diameters.size - 1))
-                round(stdDev * 1000) / 1000
-            } else {
-                0.0
-            }
-        }
-    }
-    
-    // Clear cache when needed to prevent memory leaks
-    fun clearCache() {
-        averageCache.clear()
-        stdDevCache.clear()
     }
 }

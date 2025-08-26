@@ -1,7 +1,7 @@
 package com.example.pupilx.managers
 
 class WhiteLightMonocular : BaseProtocolManager() {
-    private val diameterSmoothingManager = DiameterSmoothingManager(calculationManager)
+    private val diameterSmoothingManager = DiameterSmoothingManager()
     
     private var low = ""
     private var medium = ""
